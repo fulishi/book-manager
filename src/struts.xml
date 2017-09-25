@@ -1,0 +1,28 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.action.extension" value=","/>
+	
+	<package name="default" namespace="/book" extends="struts-default">
+		<action name="query" class="action.QueryAction" method="query">
+			<result name="success">/result.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="detail" class="action.QueryAction" method="detail">
+			<result name="success">/detail.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="delete" class="action.QueryAction" method="delete">
+			<result name="success" type="redirectAction">
+				<param name="actionName">query</param>
+				<param name="title">${title}</param>
+				<param name="author">${author}</param>
+			</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+</struts>
