@@ -23,8 +23,8 @@ function loadXMLDoc()
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			var result = xmlhttp.responseText;
-			document.getElementById("myDiv").innerHTML=result;
 			if(result == 'true') form.submit();
+			else alert("作者不存在，请先添加作者信息！");
 		}
 	}
 	
