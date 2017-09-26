@@ -63,9 +63,10 @@ public class DataIO {
 				result.setTitle(rs.getString("Book.Title"));
 				result.setPublisher(rs.getString("Book.Publisher"));
 				result.setPublishDate(rs.getString("Book.PublishDate"));
-				result.setPrice(rs.getString("Book.Price"));
+				result.setPrice(rs.getFloat("Book.Price"));
 				result.setAuthorName(rs.getString("Author.Name"));
-				result.setAuthorAge(rs.getString("Author.Age"));
+				result.setAuthorID(rs.getInt("Author.AuthorID"));
+				result.setAuthorAge(rs.getInt("Author.Age"));
 				result.setAuthorCountry(rs.getString("Author.Country"));
 			}
 		} catch (SQLException e) {
@@ -97,11 +98,11 @@ public class DataIO {
 	
 	/* 查询作者是否存在于数据库中
 	 */
-	public static boolean existAuthor(String author) {
-		String sqlSelect = "SELECT * FROM author WHERE name=?";
+	public static boolean existAuthor(int authorID) {
+		String sqlSelect = "SELECT * FROM author WHERE authorID=?";
 		try {
 			PreparedStatement qsQuery = DatabaseHelper.getConnection().prepareStatement(sqlSelect);
-			qsQuery.setString(1, author);
+			qsQuery.setInt(1, authorID);
 			return qsQuery.executeQuery().next();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -113,27 +114,18 @@ public class DataIO {
 	
 	/* 添加图书信息
 	 */
-	public static boolean add(String title, String author, String publisher, String publishDate,
-			String price, String ISBN) {
-		String sqlQuery = "SELECT AuthorID FROM Author WHERE name=?";
+	public static boolean add(String title, int authorID, String publisher, String publishDate,
+			float price, String ISBN) {
 		String sqlInsert = "INSERT INTO Book (ISBN, Title, AuthorID, Publisher, PublishDate, Price)\n"
 				+ "VALUES (?,?,?,?,?,?)";
-		
-		try {
-			PreparedStatement psQuery = DatabaseHelper.getConnection().prepareStatement(sqlQuery);
-			psQuery.setString(1, author);
-			ResultSet rs = psQuery.executeQuery();
-			int authorID;
-			if(rs.next()) authorID = rs.getInt("AuthorID");
-			else return false;
-			
+		try {			
 			PreparedStatement psInsert = DatabaseHelper.getConnection().prepareStatement(sqlInsert);
 			psInsert.setString(1, ISBN);
 			psInsert.setString(2, title);
 			psInsert.setInt(3, authorID);
 			psInsert.setString(4, publisher);
 			psInsert.setString(5, publishDate);
-			psInsert.setString(6, price);
+			psInsert.setFloat(6, price);
 			int result = psInsert.executeUpdate();
 			if(result > 0) return true;
 			else return false;

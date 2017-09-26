@@ -11,7 +11,7 @@
     <body>
         <s:form method="post" namespace="/book" action="add">
         	<s:textfield name="title" label="书名"/>
-        	<s:textfield name="author" label="作者"/>
+        	<s:textfield name="authorID" label="作者编号"/>
         	<s:textfield name="publisher" label="出版社"/>
         	<s:textfield name="publishDate" label="出版年"/>
         	<s:textfield name="price" label="价格"/>

@@ -10,9 +10,10 @@ public class BookOverview {
 	private String title;
 	private String publisher;
 	private String publishDate;
-	private String price;
+	private float price;
 	private String authorName;
-	private String authorAge;
+	private int authorID;
+	private int authorAge;
 	private String authorCountry;
 	
 	public String getISBN() {
@@ -39,10 +40,10 @@ public class BookOverview {
 	public void setPublishDate(String publishDate) {
 		this.publishDate = publishDate;
 	}
-	public String getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	public String getAuthorName() {
@@ -51,10 +52,16 @@ public class BookOverview {
 	public void setAuthorName(String authorName) {
 		this.authorName = authorName;
 	}
-	public String getAuthorAge() {
+	public int getAuthorID() {
+		return authorID;
+	}
+	public void setAuthorID(int authorID) {
+		this.authorID = authorID;
+	}
+	public int getAuthorAge() {
 		return authorAge;
 	}
-	public void setAuthorAge(String authorAge) {
+	public void setAuthorAge(int authorAge) {
 		this.authorAge = authorAge;
 	}
 	public String getAuthorCountry() {

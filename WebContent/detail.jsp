@@ -15,14 +15,15 @@
         	<li>书名: <s:property value="title"/></li>
         	<li>出版社: <s:property value="publisher"/></li>
         	<li>出版年: <s:property value="publishDate"/></li>
-        	<li>价格: <s:property value="price"/></li>
+        	<li>价格: <s:property value="price"/>元</li>
     		<li>ISBN: <s:property value="ISBN"/></li>
         	</ul>
         	<br />
         	<p>作者信息</p>
         	<ul>
         	<li>姓名: <s:property value="authorName"/></li>
-        	<li>生日: <s:property value="authorAge"/></li>
+        	<li>编号: <s:property value="authorID"/></li>
+        	<li>年龄: <s:property value="authorAge"/></li>
         	<li>国籍: <s:property value="authorCountry"/></li>
         	</ul>
     	</s:iterator>
