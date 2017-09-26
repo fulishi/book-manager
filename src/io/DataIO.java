@@ -109,4 +109,38 @@ public class DataIO {
 		
 		return false;
 	}
+	
+	
+	/* 添加图书信息
+	 */
+	public static boolean add(String title, String author, String publisher, String publishDate,
+			String price, String ISBN) {
+		String sqlQuery = "SELECT AuthorID FROM Author WHERE name=?";
+		String sqlInsert = "INSERT INTO Book (ISBN, Title, AuthorID, Publisher, PublishDate, Price)\n"
+				+ "VALUES (?,?,?,?,?,?)";
+		
+		try {
+			PreparedStatement psQuery = DatabaseHelper.getConnection().prepareStatement(sqlQuery);
+			psQuery.setString(1, author);
+			ResultSet rs = psQuery.executeQuery();
+			int authorID;
+			if(rs.next()) authorID = rs.getInt("AuthorID");
+			else return false;
+			
+			PreparedStatement psInsert = DatabaseHelper.getConnection().prepareStatement(sqlInsert);
+			psInsert.setString(1, ISBN);
+			psInsert.setString(2, title);
+			psInsert.setInt(3, authorID);
+			psInsert.setString(4, publisher);
+			psInsert.setString(5, publishDate);
+			psInsert.setString(6, price);
+			int result = psInsert.executeUpdate();
+			if(result > 0) return true;
+			else return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

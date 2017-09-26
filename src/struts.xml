@@ -24,5 +24,13 @@
 			</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		
+		<action name="add" class="action.UpdateAction" method="add">
+			<result name="success" type="redirectAction">
+				<param name="actionName">detail</param>
+				<param name="ISBN">${ISBN}</param>
+			</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 </struts>
