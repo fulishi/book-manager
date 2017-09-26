@@ -93,4 +93,20 @@ public class DataIO {
 		}
 		return false;
 	}
+	
+	
+	/* 查询作者是否存在于数据库中
+	 */
+	public static boolean existAuthor(String author) {
+		String sqlSelect = "SELECT * FROM author WHERE name=?";
+		try {
+			PreparedStatement qsQuery = DatabaseHelper.getConnection().prepareStatement(sqlSelect);
+			qsQuery.setString(1, author);
+			return qsQuery.executeQuery().next();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

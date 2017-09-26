@@ -23,6 +23,15 @@ public class QueryAction extends ActionSupport {
 
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
+	/* 默认构造函数
+	 * 将没有传入参数的情况按参数为空串的情况处理
+	 */
+	public QueryAction() {
+		author = "";
+		title = "";
+		ISBN = "";
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

@@ -17,8 +17,8 @@
     		</s:url>
     		<s:url action="delete" var="deleteAction" escapeAmp="false">
     			<s:param name="ISBN" value="ISBN" />
-    			<s:param name="title" value="queryTitle" />
     			<s:param name="author" value="queryAuthor" />
+    			<s:param name="title" value="queryTitle" />
     		</s:url>
     		<span><a href="<s:property value='detailAction'/>"><s:property value="title"/></a></span>
     		<span><a href="<s:property value='deleteAction'/>">删除该书</a></span>

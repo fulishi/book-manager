@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <s:form method="get" action="book/query">
+        <s:form method="get" namespace="/book" action="query">
         	<s:textfield name="author" label="作者" />
         	<s:textfield name="title" label="书名" />
         	<s:submit value="提交" />

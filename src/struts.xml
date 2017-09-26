@@ -3,7 +3,7 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<constant name="struts.devMode" value="true" />
-	<constant name="struts.action.extension" value=","/>
+	<constant name="struts.action.extension" value="do"/>
 	
 	<package name="default" namespace="/book" extends="struts-default">
 		<action name="query" class="action.QueryAction" method="query">
@@ -19,8 +19,8 @@
 		<action name="delete" class="action.QueryAction" method="delete">
 			<result name="success" type="redirectAction">
 				<param name="actionName">query</param>
-				<param name="title">${title}</param>
 				<param name="author">${author}</param>
+				<param name="title">${title}</param>
 			</result>
 			<result name="error">/error.jsp</result>
 		</action>
