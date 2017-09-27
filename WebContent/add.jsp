@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <s:form id="form" method="post" namespace="/book" action="add" onsubmit="return loadXMLDoc(this)">
+        <s:form id="form" method="post" namespace="/book" action="add" onsubmit="return submitWhenAuthorExists(this)">
         	<s:textfield name="title" label="书名" required="true"/>
         	<s:textfield id="authorID" name="authorID" label="作者编号" required="true" pattern="[0-9]{1,9}"/>
         	<s:textfield name="publisher" label="出版社" required="true"/>

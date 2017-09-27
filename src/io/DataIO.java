@@ -87,8 +87,7 @@ public class DataIO {
 			PreparedStatement psDelete = DatabaseHelper.getConnection().prepareStatement(sqlDelete);
 			psDelete.setString(1, ISBN);
 			int result = psDelete.executeUpdate();
-			if(result == 0) return false;
-			else return true;
+			if(result > 0) return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -128,7 +127,6 @@ public class DataIO {
 			psInsert.setFloat(6, price);
 			int result = psInsert.executeUpdate();
 			if(result > 0) return true;
-			else return false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -152,11 +150,29 @@ public class DataIO {
 			psUpdate.setString(5, ISBN);
 			int result = psUpdate.executeUpdate();
 			if(result > 0) return true;
-			else return false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
+		return false;
+	}
+	
+	/* 添加作者信息
+	 */
+	public static boolean addAuthor(String author, int authorID, int age, String country) {
+		String sqlInsert = "INSERT INTO Author (Name, AuthorID, Age, Country) VALUES (?,?,?,?)";
+		
+		try {
+			PreparedStatement psInsert = DatabaseHelper.getConnection().prepareStatement(sqlInsert);
+			psInsert.setString(1, author);
+			psInsert.setInt(2, authorID);
+			psInsert.setInt(3, age);
+			psInsert.setString(4, country);
+			int result = psInsert.executeUpdate();
+			if(result > 0) return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 }

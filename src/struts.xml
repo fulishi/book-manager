@@ -42,4 +42,12 @@
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>
+	
+	<package name="author" extends="struts-default">
+		<action name="addAuthor" class="action.AddAuthorAction">
+			<result name="success">/add.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+
 </struts>
