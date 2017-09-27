@@ -135,4 +135,28 @@ public class DataIO {
 		
 		return false;
 	}
+	
+	
+	/* 更新图书信息
+	 */
+	public static boolean update(int authorID, String publisher, String publishDate,
+			float price, String ISBN) {
+		String sqlUpdate = "UPDATE Book SET AuthorID=?, Publisher=?, PublishDate=?, Price=?\n"
+				+ "WHERE ISBN=?";
+		try {			
+			PreparedStatement psUpdate = DatabaseHelper.getConnection().prepareStatement(sqlUpdate);
+			psUpdate.setInt(1, authorID);
+			psUpdate.setString(2, publisher);
+			psUpdate.setString(3, publishDate);
+			psUpdate.setFloat(4, price);
+			psUpdate.setString(5, ISBN);
+			int result = psUpdate.executeUpdate();
+			if(result > 0) return true;
+			else return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

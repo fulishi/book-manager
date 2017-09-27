@@ -15,13 +15,18 @@
     		<s:url action="detail" var="detailAction">
     			<s:param name="ISBN" value="ISBN" />
     		</s:url>
+    		<s:url action="detail" var="toUpdateAction" escapeAmp="false">
+    			<s:param name="ISBN" value="ISBN" />
+    			<s:param name="update" value="true" />
+    		</s:url>
     		<s:url action="delete" var="deleteAction" escapeAmp="false">
     			<s:param name="ISBN" value="ISBN" />
     			<s:param name="author" value="queryAuthor" />
     			<s:param name="title" value="queryTitle" />
     		</s:url>
     		<span><a href="<s:property value='detailAction'/>"><s:property value="title"/></a></span>
-    		<span><a href="<s:property value='deleteAction'/>">删除该书</a></span>
+    		<span><a href="<s:property value='toUpdateAction'/>">编辑</a></span>
+    		<span><a href="<s:property value='deleteAction'/>">删除</a></span>
     		<br />
     	</s:iterator>
     </body>

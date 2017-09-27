@@ -20,6 +20,7 @@ public class QueryAction extends ActionSupport {
 	private String author;
 	private String title;
 	private String ISBN;
+	private boolean update;
 
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
@@ -53,7 +54,8 @@ public class QueryAction extends ActionSupport {
 		BookOverview result = DataIO.getBookOverview(ISBN);
 		if(result != null) {
 			request.setAttribute("BookOverview", result);
-			return SUCCESS;
+			if(update) return INPUT;
+			else return SUCCESS;
 		}
 		else return ERROR;
 	}
@@ -89,4 +91,13 @@ public class QueryAction extends ActionSupport {
 	public void setISBN(String iSBN) {
 		ISBN = iSBN;
 	}
+
+	public boolean isUpdate() {
+		return update;
+	}
+
+	public void setUpdate(boolean update) {
+		this.update = update;
+	}
+	
 }

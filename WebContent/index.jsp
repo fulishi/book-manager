@@ -11,7 +11,7 @@
     <body>
         <s:form method="get" namespace="/book" action="query">
         	<s:textfield name="author" label="作者" />
-        	<s:textfield name="title" label="书名" />
+        	<s:textfield name="title" label="书名" placeholder="(可选)"/>
         	<s:submit value="查询" />
         </s:form>
 		<p><a href="add.jsp">添加书籍</a></p>

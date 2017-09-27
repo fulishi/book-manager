@@ -7,12 +7,13 @@
 	
 	<package name="default" namespace="/book" extends="struts-default">
 		<action name="query" class="action.QueryAction" method="query">
-			<result name="success">/result.jsp</result>
+			<result name="success">/list.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		
 		<action name="detail" class="action.QueryAction" method="detail">
 			<result name="success">/detail.jsp</result>
+			<result name="input">/update.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
@@ -26,6 +27,14 @@
 		</action>
 		
 		<action name="add" class="action.UpdateAction" method="add">
+			<result name="success" type="redirectAction">
+				<param name="actionName">detail</param>
+				<param name="ISBN">${ISBN}</param>
+			</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="update" class="action.UpdateAction" method="update">
 			<result name="success" type="redirectAction">
 				<param name="actionName">detail</param>
 				<param name="ISBN">${ISBN}</param>
