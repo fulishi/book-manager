@@ -3,6 +3,8 @@
 <%@ include file="/include/meta.jsp" %>
         <title>更新图书</title>
 <%@ include file="/include/header.jsp" %>  
+	<div class="container">
+	<div class="content">
     	<s:set var="BO" value="#request.BookOverview" />
         <s:form id="form" method="post" namespace="/book" action="update" onsubmit="return submitWhenAuthorExists(this)">
         	<s:textfield disabled="true" name="title" value="%{#BO.getTitle()}" label="书名"/>
@@ -15,6 +17,8 @@
         	<s:hidden name="ISBN" value="%{#BO.getISBN()}"/>
         	<s:submit value="更新"/>
         </s:form>
+	</div>
+	</div>
     </body>
     
 	<script src="<s:url value='/js/ajax.js'/>"></script>

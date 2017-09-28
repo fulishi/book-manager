@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/include/meta.jsp" %>
         <title>Books</title>
-<%@ include file="/include/header.jsp" %>  
+<%@ include file="/include/header.jsp" %>
+	<div class="container">
+	<div class="content">
     	<s:set var="queryTitle" value="title" />
     	<s:set var="queryAuthor" value="author" />
     	<s:iterator value="#request.Books">
@@ -23,5 +25,7 @@
     		<span><a href="<s:property value='deleteAction'/>">删除</a></span>
     		<br />
     	</s:iterator>
+    </div>
+    </div>
     </body>
 </html>

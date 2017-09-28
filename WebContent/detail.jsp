@@ -3,6 +3,8 @@
 <%@ include file="/include/meta.jsp" %>
         <title>Book Info</title>
 <%@ include file="/include/header.jsp" %>  
+	<div class="container">
+	<div class="content">
     	<s:iterator value="#request.BookOverview">
     		<p>书籍信息</p>
     		<ul>
@@ -21,5 +23,7 @@
         	<li>国籍: <s:property value="authorCountry"/></li>
         	</ul>
     	</s:iterator>
+	</div>
+	</div>
     </body>
 </html>

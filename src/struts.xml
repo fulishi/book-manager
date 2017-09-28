@@ -4,6 +4,7 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.action.extension" value="do"/>
+	<constant name="struts.ui.theme" value="simple" />
 	
 	<package name="default" namespace="/book" extends="struts-default">
 		<action name="query" class="action.QueryAction" method="query">

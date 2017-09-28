@@ -27,7 +27,7 @@ function loadXMLDoc(form, flagToSubmit, msg)
     }
 
     var authorID = form.authorID.value;
-    xmlhttp.open("GET","http://localhost:8080/struts2/api/query?authorid="+authorID,true);
+    xmlhttp.open("GET","http://localhost:8080/BookManager/api/query?authorid="+authorID,true);
     xmlhttp.send();
     return false;
 }

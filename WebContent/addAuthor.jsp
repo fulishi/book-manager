@@ -3,6 +3,8 @@
 <%@ include file="/include/meta.jsp" %>
         <title>添加作者</title>
 <%@ include file="/include/header.jsp" %>  
+	<div class="container">
+	<div class="content">
         <s:form id="form" method="post" action="addAuthor" onsubmit="return submitWhenAuthorNotExists(this)">
         	<s:textfield name="author" label="作者" required="true"/>
         	<s:textfield name="authorID" label="编号" required="true" pattern="[0-9]{1,9}"/>
@@ -10,6 +12,8 @@
         	<s:textfield name="country" label="国籍" required="true"/>
         	<s:submit value="添加"/>
         </s:form>
+	</div>
+	</div>
     </body>
     
     <script src="<s:url value='/js/ajax.js'/>"></script>
