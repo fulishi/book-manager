@@ -6,23 +6,19 @@
 	<div class="content">
           <div class="cover">
           	<div class="inner">
-            <h1>Search books you want...</h1>
+            <h2>Search Books by Author</h2>
+            <s:form action="query" method="get">
             <div class="input-group input-group-lg">
-  				<input type="text" class="form-control" placeholder="Author Name">
+  				<input type="text" name="author" class="form-control" placeholder="作者名字">
+				<span class="input-group-btn">
+	        		<button class="btn btn-default" type="submit">搜索</button>
+	      		</span>
 			</div>
+			</s:form>
 			</div>
           </div>
-
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-          </div>
-
+          
+		<%@ include file="/include/footer.jsp" %>
         </div>
-
-      </div>
-
-    </div>
     </body>
 </html>

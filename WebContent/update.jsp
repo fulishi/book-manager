@@ -3,8 +3,8 @@
 <%@ include file="/include/meta.jsp" %>
         <title>更新图书</title>
 <%@ include file="/include/header.jsp" %>  
-	<div class="container">
 	<div class="content">
+	<div class="container">
     	<s:set var="BO" value="#request.BookOverview" />
         <s:form id="form" method="post" action="update" onsubmit="return updateBook(this)">
         	<s:textfield disabled="true" name="title" value="%{#BO.getTitle()}" label="书名"/>
@@ -18,6 +18,7 @@
         	<s:submit value="更新"/>
         </s:form>
 	</div>
+    	<%@ include file="/include/footer.jsp" %>
 	</div>
     </body>
     

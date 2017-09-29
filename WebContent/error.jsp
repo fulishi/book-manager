@@ -3,10 +3,11 @@
 <%@ include file="/include/meta.jsp" %>
         <title>Error</title>
 <%@ include file="/include/header.jsp" %>  
-	<div class="container">
 	<div class="content">
+	<div class="container">
         Sorry!
 	</div>
+    	<%@ include file="/include/footer.jsp" %>
 	</div>
     </body>
 </html>

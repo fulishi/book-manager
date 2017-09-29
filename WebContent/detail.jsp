@@ -3,8 +3,8 @@
 <%@ include file="/include/meta.jsp" %>
         <title>Book Info</title>
 <%@ include file="/include/header.jsp" %>  
-	<div class="container">
 	<div class="content">
+	<div class="container">
     	<s:iterator value="#request.BookOverview">
     		<p>书籍信息</p>
     		<ul>
@@ -24,6 +24,7 @@
         	</ul>
     	</s:iterator>
 	</div>
+    	<%@ include file="/include/footer.jsp" %>
 	</div>
     </body>
 </html>
