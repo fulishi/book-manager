@@ -8,7 +8,7 @@
 	
 	<package name="default" namespace="/book" extends="struts-default">
 		<action name="query" class="action.QueryAction" method="query">
-			<result name="success">/list.jsp</result>
+			<result name="success">/query.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		
