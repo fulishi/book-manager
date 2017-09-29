@@ -27,15 +27,17 @@ function loadXMLDoc(form, flagToSubmit, msg)
     }
 
     var authorID = form.authorID.value;
-    xmlhttp.open("GET","http://localhost:8080/BookManager/api/query?authorid="+authorID,true);
+    xmlhttp.open("GET","api/query?authorid="+authorID,true);
     xmlhttp.send();
     return false;
 }
 
-function submitWhenAuthorExists(form) {
+/* 新增图书或更新图书信息 */
+function updateBook(form) {
 	return loadXMLDoc(form, 'true', "作者不存在！");
 }
 
-function submitWhenAuthorNotExists(form) {
+/* 新增作者 */
+function addAuthor(form) {
 	return loadXMLDoc(form, 'false', "作者已经存在！");
 }

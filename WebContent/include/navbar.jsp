@@ -15,7 +15,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<s:url value='/'/>">首页</a></li>
-        <li><a href="<s:url namespace='/book' action="query" />">图书列表</a></li>
+        <li><a href="<s:url action="query" />">图书列表</a></li>
         <li><a href="#contact">作者列表</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>

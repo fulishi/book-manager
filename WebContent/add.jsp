@@ -5,7 +5,7 @@
 <%@ include file="/include/header.jsp" %>
 	<div class="container">
 	<div class="content">
-        <form id="form" method="post" action="/book/add" onsubmit="return submitWhenAuthorExists(this)">
+        <s:form id="form" method="post" action="add" onsubmit="return updateBook(this)">
         	<div class="input-group">
   				<span class="input-group-addon" id="basic-addon1">书名</span>
         		<input type="text" name="title" required="true"/>
@@ -33,7 +33,7 @@
         	<div class="input-group" class="btn btn-default">
                 <input type="submit" value="添加"/>
             </div>
-        </form>
+        </s:form>
 	</div>
 	</div>
     </body>

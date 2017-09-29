@@ -6,7 +6,7 @@
 	<div class="container">
 	<div class="content">
     	<s:set var="BO" value="#request.BookOverview" />
-        <s:form id="form" method="post" namespace="/book" action="update" onsubmit="return submitWhenAuthorExists(this)">
+        <s:form id="form" method="post" action="update" onsubmit="return updateBook(this)">
         	<s:textfield disabled="true" name="title" value="%{#BO.getTitle()}" label="书名"/>
         	<s:hidden name="title" value="%{#BO.getTitle()}"/>
         	<s:textfield id="authorID" name="authorID" value="%{#BO.getAuthorID()}" label="作者编号" required="true" pattern="[0-9]{1,9}"/>

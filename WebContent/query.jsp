@@ -8,14 +8,14 @@
     	<s:set var="queryTitle" value="title" />
     	<s:set var="queryAuthor" value="author" />
     	<s:iterator value="#request.Books">
-    		<s:url namespace='/book' action="detail" var="detailAction">
+    		<s:url action="detail" var="detailAction">
     			<s:param name="ISBN" value="ISBN" />
     		</s:url>
-    		<s:url namespace='/book' action="detail" var="toUpdateAction" escapeAmp="false">
+    		<s:url action="detail" var="toUpdateAction" escapeAmp="false">
     			<s:param name="ISBN" value="ISBN" />
     			<s:param name="update" value="true" />
     		</s:url>
-    		<s:url namespace='/book' action="delete" var="deleteAction" escapeAmp="false">
+    		<s:url action="delete" var="deleteAction" escapeAmp="false">
     			<s:param name="ISBN" value="ISBN" />
     			<s:param name="author" value="queryAuthor" />
     			<s:param name="title" value="queryTitle" />

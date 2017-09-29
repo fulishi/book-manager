@@ -6,7 +6,7 @@
 	<constant name="struts.action.extension" value="do"/>
 	<constant name="struts.ui.theme" value="simple" />
 	
-	<package name="default" namespace="/book" extends="struts-default">
+	<package name="default" extends="struts-default">
 		<action name="query" class="action.QueryAction" method="query">
 			<result name="success">/query.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -42,9 +42,7 @@
 			</result>
 			<result name="error">/error.jsp</result>
 		</action>
-	</package>
-	
-	<package name="author" extends="struts-default">
+		
 		<action name="addAuthor" class="action.AddAuthorAction">
 			<result name="success">/add.jsp</result>
 			<result name="error">/error.jsp</result>
