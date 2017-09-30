@@ -9,8 +9,8 @@ public class BookInfo {
 	private String ISBN;
 	private String title;
 	
-	public BookInfo(String iSBN, String title) {
-		ISBN = iSBN;
+	public BookInfo(String ISBN, String title) {
+		this.ISBN = ISBN;
 		this.title = title;
 	}
 	public String getISBN() {

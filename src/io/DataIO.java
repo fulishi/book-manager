@@ -4,7 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.TreeMap;
+import java.util.TreeMap;
 
+import action.AuthorInfo;
 import action.BookInfo;
 import action.BookOverview;
 
@@ -17,26 +20,32 @@ public class DataIO {
 	/* 获取图书标题
 	 * 通过作者以及部分标题查询图书，返回满足条件的图书标题列表
 	 */
-	public static ArrayList<BookInfo> getBookInfo(String author, String title) {
-		String sqlSelect = "SELECT ISBN, Title FROM Book WHERE title LIKE ?";
-		String sqlSelectWithAuthor = "SELECT ISBN, Title FROM Book WHERE AuthorID IN\n"
-						+ "(SELECT AuthorID FROM Author WHERE Name = ?)\n"
-						+ "AND title LIKE ?";
+	public static TreeMap<AuthorInfo, ArrayList<BookInfo>> getBookInfo(String author, String title) {
+		String sqlSelect = "SELECT A.AuthorID, A.Name, B.Title, B.ISBN FROM Author as A, Book as B\n"
+				+ "WHERE A.AuthorID=B.AuthorID AND B.Title LIKE ?";
+		String sqlSelectByAuthor = sqlSelect + " AND A.Name=?";
 		
-		ArrayList<BookInfo> result = new ArrayList<BookInfo>();
-		String targetStatement = "".equals(author) ? sqlSelect : sqlSelectWithAuthor;
+		TreeMap<AuthorInfo, ArrayList<BookInfo>> result = new TreeMap<AuthorInfo, ArrayList<BookInfo>>();
+		String targetStatement = "".equals(author) ? sqlSelect : sqlSelectByAuthor;
 		
 		try {
 			PreparedStatement psQuery = DatabaseHelper.getConnection().prepareStatement(targetStatement);
-			if("".equals(author)) psQuery.setString(1, '%'+title+'%');
-			else {
-				psQuery.setString(1, author);
-				psQuery.setString(2, '%'+title+'%');
-			}
+			psQuery.setString(1, "%"+title+"%");
+			if(!"".equals(author)) psQuery.setString(2, author);
 			
 			ResultSet rs = psQuery.executeQuery();
+			AuthorInfo authorInfo;
+			BookInfo bookInfo;
+			ArrayList<BookInfo> bookInfoList;
 			while(rs.next()) {
-				result.add(new BookInfo(rs.getString("ISBN"), rs.getString("Title")));
+				authorInfo = new AuthorInfo(rs.getInt("A.AuthorID"), rs.getString("A.Name"));
+				bookInfo = new BookInfo(rs.getString("B.ISBN"), rs.getString("B.Title"));
+				bookInfoList = result.get(authorInfo);
+				if(bookInfoList == null) {
+					bookInfoList = new ArrayList<BookInfo>();
+					result.put(authorInfo, bookInfoList);
+				}
+				bookInfoList.add(bookInfo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

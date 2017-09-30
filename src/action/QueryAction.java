@@ -1,6 +1,7 @@
 package action;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -40,10 +41,10 @@ public class QueryAction extends ActionSupport {
 	/* 根据作者和书名查询书籍
 	 */
 	public String query() {
-		ArrayList<BookInfo> result = DataIO.getBookInfo(author, title);
+		TreeMap<AuthorInfo, ArrayList<BookInfo>> result = DataIO.getBookInfo(author, title);
 		if(result.isEmpty()) return ERROR;
 		else {
-			request.setAttribute("Books", result);
+			request.setAttribute("BookMap", result);
 			return SUCCESS;
 		}
 	}
@@ -88,8 +89,8 @@ public class QueryAction extends ActionSupport {
 		return ISBN;
 	}
 
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
+	public void setISBN(String ISBN) {
+		this.ISBN = ISBN;
 	}
 
 	public boolean isUpdate() {
