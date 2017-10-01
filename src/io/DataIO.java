@@ -107,7 +107,7 @@ public class DataIO {
 	/* 查询作者是否存在于数据库中
 	 */
 	public static boolean existAuthor(int authorID) {
-		String sqlSelect = "SELECT * FROM author WHERE authorID=?";
+		String sqlSelect = "SELECT * FROM Author WHERE AuthorID=?";
 		try {
 			PreparedStatement qsQuery = DatabaseHelper.getConnection().prepareStatement(sqlSelect);
 			qsQuery.setInt(1, authorID);
