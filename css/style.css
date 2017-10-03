@@ -82,9 +82,23 @@ body, .navbar {
 	margin-bottom: 3rem;
 }
 
-.inner .input-group {
+.cover > .inner .input-group {
 	margin:0 auto;
-	width: 40%;
+	width: 60%;
+	max-width: 600px;
+	min-width: 200px;
+}
+
+.cover #search-condition {
+	margin: 10px 0;
+}
+
+.cover #search-condition > label {
+	margin: 0 10px;
+}
+
+.cover #search-condition > label {
+	font-size: 15px;
 }
 
 .footer {
@@ -101,18 +115,7 @@ body, .navbar {
 }
 
 
-@media(max-width: 1200px) {
-	.inner .input-group {
-		width: 50%;
-	}
-}
-
-
 @media(max-width: 768px) {
-	
-	.cover .inner {
-		top: 20%;
-	}
 	
 	.cover h1 {
 		font-size: 28px;
@@ -125,5 +128,9 @@ body, .navbar {
 		font-size: 14px;
 		line-height: 1.3333333;
 		border-radius: 3px;
+	}
+	
+	.cover #search-condition > label {
+		font-size: 13px;
 	}
 }
