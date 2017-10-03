@@ -18,7 +18,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<s:url value='/add.jsp' />">添加图书</a></li>
-        <li><a target="_blank" href="<s:url value='/addAuthor.jsp' />">添加作者 <span class="sr-only">(current)</span></a></li>
+        <li><a href="<s:url value='/addAuthor.jsp' />">添加作者</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

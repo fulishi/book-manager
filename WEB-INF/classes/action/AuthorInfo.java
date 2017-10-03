@@ -3,7 +3,7 @@ package action;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-30
- * @description: 存储作者和编号，用作HashMap的键
+ * @description: 瀛樺偍浣滆�呭拰缂栧彿锛岀敤浣淗ashMap鐨勯敭
  */
 public class AuthorInfo implements Comparable<AuthorInfo>{
 	private int authorID;

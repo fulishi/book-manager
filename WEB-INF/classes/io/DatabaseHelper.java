@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-22
- * @description: ·â×°Êı¾İ¿âµÄÁ¬½ÓºÍ¹Ø±Õ²Ù×÷
+ * @description: å°è£…æ•°æ®åº“çš„è¿æ¥å’Œå…³é—­æ“ä½œ
  */
 public class DatabaseHelper {
 	static private Connection connection;

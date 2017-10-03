@@ -1,5 +1,9 @@
 package action;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import io.DataIO;
@@ -7,7 +11,7 @@ import io.DataIO;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-26
- * @description: ���Ӻ͸���ͼ����Ϣ
+ * @description: 添加和更新图书信息
  */
 public class UpdateAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -18,18 +22,25 @@ public class UpdateAction extends ActionSupport {
 	private float price;
 	private String ISBN;
 
+	HttpServletRequest request = ServletActionContext.getRequest();
 
 	public String add() {
 		if(DataIO.add(title, authorID, publisher, publishDate, price, ISBN))
 			return SUCCESS;
-		else return ERROR;
+		else {
+			request.setAttribute("errorMsg", "对不起，添加图书信息失败！");
+			return ERROR;
+		}
 	}
 	
 	
 	public String update() {
 		if(DataIO.update(authorID, publisher, publishDate, price, ISBN))
 			return SUCCESS;
-		else return ERROR;
+		else {
+			request.setAttribute("errorMsg", "对不起，更新图书信息失败！");
+			return ERROR;
+		}
 	}
 
 

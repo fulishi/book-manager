@@ -1,5 +1,9 @@
 package action;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import io.DataIO;
@@ -7,7 +11,7 @@ import io.DataIO;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-27
- * @description: ����������Ϣ
+ * @description: 添加作者信息
  */
 public class AddAuthorAction extends ActionSupport {
 	
@@ -17,11 +21,16 @@ public class AddAuthorAction extends ActionSupport {
 	private int age;
 	private String country;
 
+	HttpServletRequest request = ServletActionContext.getRequest();
+
 	@Override
 	public String execute() {
 		if(DataIO.addAuthor(author, authorID, age, country))
 			return SUCCESS;
-		else return ERROR;
+		else {
+			request.setAttribute("errorMsg", "对不起，添加作者信息失败！");
+			return ERROR;
+		}
 	}
 
 	public String getAuthor() {

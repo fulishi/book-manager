@@ -10,7 +10,7 @@ import io.DataIO;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-25
- * @description: 提供AJAX异步api接口，查询作者是否存在于数据库中
+ * @description: 鎻愪緵AJAX寮傛api鎺ュ彛锛屾煡璇綔鑰呮槸鍚﹀瓨鍦ㄤ簬鏁版嵁搴撲腑
  */
 public class Query extends HttpServlet {
 	private static final long serialVersionUID = 1L;

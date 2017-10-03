@@ -27,6 +27,7 @@
         	<div class="input-group">
   				<span class="input-group-addon">价格</span>
                 <input class="form-control" type="text" name="price" required="true" pattern="[0-9]+(\.[0-9]+)?"/>
+                <span class="input-group-addon">元</span>
             </div>
         	<div class="input-group">
   				<span class="input-group-addon">ISBN</span>

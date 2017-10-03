@@ -6,7 +6,7 @@
 	<div class="content">
 	<div class="container">
 		<div class="error-msg">
-			<h1>对不起，页面走丢了 &gt;_&lt;</h1>
+			<s:property value="#request.errorMsg" />
 		</div>
 	</div>
     	<%@ include file="/include/footer.jsp" %>

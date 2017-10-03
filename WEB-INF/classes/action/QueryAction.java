@@ -25,8 +25,8 @@ public class QueryAction extends ActionSupport {
 
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
-	/* Ä¬ÈÏ¹¹Ôìº¯Êı
-	 * ½«Ã»ÓĞ´«Èë²ÎÊıµÄÇé¿ö°´²ÎÊıÎª¿Õ´®µÄÇé¿ö´¦Àí
+	/* é»˜è®¤æ„é€ å‡½æ•°
+	 * å°†æ²¡æœ‰ä¼ å…¥å‚æ•°çš„æƒ…å†µæŒ‰å‚æ•°ä¸ºç©ºä¸²çš„æƒ…å†µå¤„ç†
 	 */
 	public QueryAction() {
 		author = "";
@@ -38,18 +38,21 @@ public class QueryAction extends ActionSupport {
 		return serialVersionUID;
 	}
 
-	/* ¸ù¾İ×÷ÕßºÍÊéÃû²éÑ¯Êé¼®
+	/* æ ¹æ®ä½œè€…å’Œä¹¦åæŸ¥è¯¢ä¹¦ç±
 	 */
 	public String query() {
 		TreeMap<AuthorInfo, ArrayList<BookInfo>> result = DataIO.getBookInfo(author, title);
-		if(result.isEmpty()) return ERROR;
+		if(result.isEmpty()) {
+			request.setAttribute("errorMsg", "å¯¹ä¸èµ·ï¼Œæ²¡æœ‰æ‰¾åˆ°ç›¸å…³è®°å½•ï¼");
+			return ERROR;
+		}
 		else {
 			request.setAttribute("BookMap", result);
 			return SUCCESS;
 		}
 	}
 	
-	/* ¸ù¾İISBN²éÑ¯Ä³±¾Êé¼°Æä×÷ÕßµÄÏêÏ¸ĞÅÏ¢
+	/* æ ¹æ®ISBNæŸ¥è¯¢æŸæœ¬ä¹¦åŠå…¶ä½œè€…çš„è¯¦ç»†ä¿¡æ¯
 	 */
 	public String detail() {
 		BookOverview result = DataIO.getBookOverview(ISBN);
@@ -58,15 +61,21 @@ public class QueryAction extends ActionSupport {
 			if(update) return INPUT;
 			else return SUCCESS;
 		}
-		else return ERROR;
+		else {
+			request.setAttribute("errorMsg", "å¯¹ä¸èµ·ï¼Œæ²¡æœ‰æ‰¾åˆ°è¯¥å›¾ä¹¦çš„æœ‰å…³ä¿¡æ¯ï¼");
+			return ERROR;
+		}
 	}
 	
-	/* ¸ù¾İISBNÉ¾³ıÄ³±¾Êé
+	/* æ ¹æ®ISBNåˆ é™¤æŸæœ¬ä¹¦
 	 */
 	public String delete() {
 		if(DataIO.deleteBook(ISBN))
 			return SUCCESS;
-		else return ERROR;
+		else {
+			request.setAttribute("errorMsg", "å¯¹ä¸èµ·ï¼Œåˆ é™¤å›¾ä¹¦ä¿¡æ¯å¤±è´¥ï¼");
+			return ERROR;
+		}
 	}
 
 	public String getAuthor() {

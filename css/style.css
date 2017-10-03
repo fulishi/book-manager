@@ -44,8 +44,12 @@ body {
 	text-align: center;
 }
 
-.panel .input-group-addon {
+.panel .input-group-addon:first-child {
 	width: 100px;
+}
+
+.panel .input-group .form-control {
+	text-align: center;
 }
 
 .panel .btn {
@@ -95,10 +99,12 @@ body, .navbar {
 
 .cover #search-condition > label {
 	margin: 0 10px;
+	font-size: 15px;
+	font-weight: 500;
 }
 
-.cover #search-condition > label {
-	font-size: 15px;
+.cover #search-condition input[type="radio"] {
+	margin: 0 5px;
 }
 
 .footer {
@@ -132,5 +138,12 @@ body, .navbar {
 	
 	.cover #search-condition > label {
 		font-size: 13px;
+	}
+}
+
+
+@media(max-width: 430px) {
+	.cover {
+		height: 94%;
 	}
 }

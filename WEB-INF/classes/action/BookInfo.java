@@ -3,7 +3,7 @@ package action;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-24
- * @description: 存储书名和ID，以便生成URL
+ * @description: 瀛樺偍涔﹀悕鍜孖D锛屼互渚跨敓鎴怳RL
  */
 public class BookInfo {
 	private String ISBN;

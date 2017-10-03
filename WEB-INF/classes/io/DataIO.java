@@ -13,11 +13,11 @@ import action.BookOverview;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-22
- * @description: ·â×°Êı¾İ¿âµÄCRUD²Ù×÷
+ * @description: å°è£…æ•°æ®åº“çš„CRUDæ“ä½œ
  */
 public class DataIO {
-	/* »ñÈ¡Í¼Êé±êÌâ
-	 * Í¨¹ı×÷ÕßÒÔ¼°²¿·Ö±êÌâ²éÑ¯Í¼Êé£¬·µ»ØÂú×ãÌõ¼şµÄÍ¼Êé±êÌâÁĞ±í
+	/* è·å–å›¾ä¹¦æ ‡é¢˜
+	 * é€šè¿‡ä½œè€…ä»¥åŠéƒ¨åˆ†æ ‡é¢˜æŸ¥è¯¢å›¾ä¹¦ï¼Œè¿”å›æ»¡è¶³æ¡ä»¶çš„å›¾ä¹¦æ ‡é¢˜åˆ—è¡¨
 	 */
 	public static TreeMap<AuthorInfo, ArrayList<BookInfo>> getBookInfo(String author, String title) {
 		String sqlSelect = "SELECT A.AuthorID, A.Name, B.Title, B.ISBN FROM Author as A, Book as B\n"
@@ -53,9 +53,9 @@ public class DataIO {
 		return result;
 	}
 	
-	/* ¸ù¾İISBN»ñÈ¡Í¼ÊéºÍ×÷ÕßµÄĞÅÏ¢
-	 * ²éÑ¯³É¹¦£º·µ»ØÏà¹ØµÄÊı¾İ
-	 * ²éÑ¯Ê§°Ü£º·µ»Ønull
+	/* æ ¹æ®ISBNè·å–å›¾ä¹¦å’Œä½œè€…çš„ä¿¡æ¯
+	 * æŸ¥è¯¢æˆåŠŸï¼šè¿”å›ç›¸å…³çš„æ•°æ®
+	 * æŸ¥è¯¢å¤±è´¥ï¼šè¿”å›null
 	 */
 	public static BookOverview getBookOverview(String ISBN) {
 		String sqlSelect = "SELECT * FROM Book, Author where Book.ISBN=? AND Book.AuthorID=Author.AuthorID";
@@ -85,8 +85,8 @@ public class DataIO {
 	}
 	
 	
-	/* ¸ù¾İISBNÉ¾³ıÍ¼Êé¼ÇÂ¼
-	 * ³É¹¦·µ»Øtrue£¬Ê§°Ü·µ»Øfalse
+	/* æ ¹æ®ISBNåˆ é™¤å›¾ä¹¦è®°å½•
+	 * æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›false
 	 */
 	public static boolean deleteBook(String ISBN) {
 		String sqlDelete = "DELETE FROM Book where ISBN=?";
@@ -103,7 +103,7 @@ public class DataIO {
 	}
 	
 	
-	/* ²éÑ¯×÷ÕßÊÇ·ñ´æÔÚÓÚÊı¾İ¿âÖĞ
+	/* æŸ¥è¯¢ä½œè€…æ˜¯å¦å­˜åœ¨äºæ•°æ®åº“ä¸­
 	 */
 	public static boolean existAuthor(int authorID) {
 		String sqlSelect = "SELECT * FROM Author WHERE AuthorID=?";
@@ -119,7 +119,7 @@ public class DataIO {
 	}
 	
 	
-	/* Ìí¼ÓÍ¼ÊéĞÅÏ¢
+	/* æ·»åŠ å›¾ä¹¦ä¿¡æ¯
 	 */
 	public static boolean add(String title, int authorID, String publisher, String publishDate,
 			float price, String ISBN) {
@@ -143,7 +143,7 @@ public class DataIO {
 	}
 	
 	
-	/* ¸üĞÂÍ¼ÊéĞÅÏ¢
+	/* æ›´æ–°å›¾ä¹¦ä¿¡æ¯
 	 */
 	public static boolean update(int authorID, String publisher, String publishDate,
 			float price, String ISBN) {
@@ -165,7 +165,7 @@ public class DataIO {
 		return false;
 	}
 	
-	/* Ìí¼Ó×÷ÕßĞÅÏ¢
+	/* æ·»åŠ ä½œè€…ä¿¡æ¯
 	 */
 	public static boolean addAuthor(String author, int authorID, int age, String country) {
 		String sqlInsert = "INSERT INTO Author (Name, AuthorID, Age, Country) VALUES (?,?,?,?)";

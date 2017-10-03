@@ -31,7 +31,7 @@
 		    		<li class="list-group-item">
 					<span class="button">
 		    		<button type="button" class="btn btn-xs btn-default" onclick="location.href='<s:property value="#goUpdateAction" />'">编辑</button>
-		    		<button type="button" class="btn btn-xs btn-danger" onclick="location.href='<s:property value="#deleteAction" />'">删除</button>
+		    		<button type="button" class="btn btn-xs btn-danger" onclick="confirmDeletion('<s:property value="#deleteAction" />')">删除</button>
 		    		</span>
 		    		<span><a href="<s:property value='detailAction'/>"><s:property value="#book.getTitle()"/></a></span>
 		    		</li>
@@ -42,5 +42,12 @@
     </div>
     	<%@ include file="/include/footer.jsp" %>
     </div>
+    
+    <script type="text/javascript">
+    	function confirmDeletion(url) {
+    		var r = confirm("确定删除该图书吗？");
+    		if(r == true) location.href = url;
+    	}
+    </script>
     </body>
 </html>

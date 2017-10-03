@@ -7,7 +7,7 @@
 	<div class="container">
         <div class="panel panel-default">
         <div class="panel-heading">添加作者</div>
-        <s:form id="form" method="post" action="addAuthor" onsubmit="return submitWhenAuthorNotExists(this)">
+        <s:form id="form" method="post" action="addAuthor" onsubmit="return addAuthor(this)">
             <div class="input-group">
                 <span class="input-group-addon">作者</span>
                 <input class="form-control" type="text" name="author" required="true"/>
