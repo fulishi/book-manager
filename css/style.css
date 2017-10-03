@@ -10,6 +10,10 @@ body {
 	background-color: #fbf9f2;
 }
 
+.navbar-default .navbar-nav > li > a:hover {
+	background-color: #e7e7e7;
+}
+
 .content {
 	height: 100%;
 	padding: 30px 0;
@@ -30,7 +34,25 @@ body {
 	
 }
 
-.panel .button {
+.panel .input-group {
+	width: 100%;
+	padding: 20px 20px 0 20px;
+}
+
+.panel .input-center {
+	margin: 20px;
+	text-align: center;
+}
+
+.panel .input-group-addon {
+	width: 100px;
+}
+
+.panel .btn {
+	margin: 0 auto;
+}
+
+.list-group-item .button {
 	min-width: 80px;
 	float: right;
 }
@@ -53,7 +75,7 @@ body, .navbar {
 
 .cover .inner {
 	position: relative;
-	top: 30%;
+	top: 20%;
 }
 
 .cover h1 {
@@ -72,6 +94,10 @@ body, .navbar {
 
 .footer p {
 	margin:0;
+}
+
+.error-msg {
+	text-align: center;
 }
 
 

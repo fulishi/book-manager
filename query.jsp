@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ include file="/include/meta.jsp" %>
-        <title>Books</title>
+        <title>图书列表</title>
 <%@ include file="/include/header.jsp" %>
 	<div class="content">
 	<div class="container">

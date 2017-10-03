@@ -5,13 +5,30 @@
 <%@ include file="/include/header.jsp" %>  
 	<div class="content">
 	<div class="container">
+        <div class="panel panel-default">
+        <div class="panel-heading">添加作者</div>
         <s:form id="form" method="post" action="addAuthor" onsubmit="return submitWhenAuthorNotExists(this)">
-        	<s:textfield name="author" label="作者" required="true"/>
-        	<s:textfield name="authorID" id="authorID" label="编号" required="true" pattern="[0-9]{1,9}"/>
-        	<s:textfield name="age" label="年龄" required="true" pattern="\d+"/>
-        	<s:textfield name="country" label="国籍" required="true"/>
-        	<s:submit value="添加"/>
+            <div class="input-group">
+                <span class="input-group-addon">作者</span>
+                <input class="form-control" type="text" name="author" required="true"/>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">编号</span>
+                <input class="form-control" type="text" name="authorID" id="authorID" required="true" pattern="[0-9]{1,9}"/>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">年龄</span>
+                <input class="form-control" type="text" name="age" required="true" pattern="\d+"/>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">国籍</span>
+                <input class="form-control" type="text" name="country" required="true"/>
+            </div>
+            <div class="input-center">
+                <input class="btn btn-default" type="submit" value="添加"/>
+            </div>
         </s:form>
+        </div>
 	</div>
     	<%@ include file="/include/footer.jsp" %>
 	</div>

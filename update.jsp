@@ -5,18 +5,39 @@
 <%@ include file="/include/header.jsp" %>  
 	<div class="content">
 	<div class="container">
-    	<s:set var="BO" value="#request.BookOverview" />
+		<div class="panel panel-default">
+		<div class="panel-heading">更新图书</div>
+    	<s:set value="#request.BookOverview" var="bo" />
         <s:form id="form" method="post" action="update" onsubmit="return updateBook(this)">
-        	<s:textfield disabled="true" name="title" value="%{#BO.getTitle()}" label="书名"/>
-        	<s:hidden name="title" value="%{#BO.getTitle()}"/>
-        	<s:textfield id="authorID" name="authorID" value="%{#BO.getAuthorID()}" label="作者编号" required="true" pattern="[0-9]{1,9}"/>
-        	<s:textfield name="publisher" value="%{#BO.getPublisher()}" label="出版社" required="true"/>
-        	<s:textfield name="publishDate" value="%{#BO.getPublishDate()}" label="出版日期" required="true" pattern="[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])"/>
-        	<s:textfield name="price" value="%{#BO.getPrice()}" label="价格" required="true" pattern="[0-9]+(\.[0-9]+)?"/>
-        	<s:textfield disabled="true" name="ISBN" value="%{#BO.getISBN()}" label="ISBN"/>
-        	<s:hidden name="ISBN" value="%{#BO.getISBN()}"/>
-        	<s:submit value="更新"/>
+            <div class="input-group">
+                <span class="input-group-addon">书名</span>
+                <input class="form-control" type="text" readonly="true" name="title" value="<s:property value='#bo.title' />"/>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">作者编号</span>
+                <input class="form-control" type="text" id="authorID" name="authorID" value="<s:property value='#bo.authorID' />" required="true" pattern="[0-9]{1,9}"/>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">出版社</span>
+                <input class="form-control" type="text" name="publisher" value="<s:property value='#bo.publisher' />" required="true"/>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">出版日期</span>
+                <input class="form-control" type="text" name="publishDate" value="<s:property value='#bo.publishDate' />" required="true" pattern="[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])"/>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">价格</span>
+                <input class="form-control" type="text" name="price" value="<s:property value='#bo.price' />" required="true" pattern="[0-9]+(\.[0-9]+)?"/>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">ISBN</span>
+                <input class="form-control" type="text" readonly="true" name="ISBN" value="<s:property value='#bo.ISBN' />"/>
+            </div>
+	        <div class="input-center">
+	          <input type="submit" class="btn btn-default" value="更新" />
+	        </div>
         </s:form>
+        </div>
 	</div>
     	<%@ include file="/include/footer.jsp" %>
 	</div>

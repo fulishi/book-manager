@@ -9,10 +9,10 @@
             <h1>图书管理系统</h1>
             <s:form action="query" method="get">
             <div class="input-group input-group-lg">
-  				<input type="text" name="author" class="form-control" placeholder="作者">
-				<span class="input-group-btn">
+  				<input type="text" name="author" class="form-control">
+				<div class="input-group-btn">
 	        		<button class="btn btn-default" type="submit">搜索</button>
-	      		</span>
+	      		</div>
 			</div>
 			</s:form>
 			</div>
