@@ -9,7 +9,7 @@ import java.sql.SQLException;
  * @date: 2017-09-22
  * @description: 封装数据库的连接和关闭操作
  */
-public class DatabaseHelper {
+public class DBHelper {
 	static private Connection connection;
 	static private final String URL =
 			"jdbc:mysql://localhost:3306/mydb?user=web&password=helloworld&characterEncoding=UTF-8";

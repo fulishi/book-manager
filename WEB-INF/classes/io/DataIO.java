@@ -28,7 +28,7 @@ public class DataIO {
 		String targetStatement = "".equals(author) ? sqlSelect : sqlSelectByAuthor;
 		
 		try {
-			PreparedStatement psQuery = DatabaseHelper.getConnection().prepareStatement(targetStatement);
+			PreparedStatement psQuery = DBHelper.getConnection().prepareStatement(targetStatement);
 			psQuery.setString(1, "%"+title+"%");
 			if(!"".equals(author)) psQuery.setString(2, author);
 			
@@ -62,7 +62,7 @@ public class DataIO {
 		BookOverview result = null;
 		
 		try {
-			PreparedStatement psQuery = DatabaseHelper.getConnection().prepareStatement(sqlSelect);
+			PreparedStatement psQuery = DBHelper.getConnection().prepareStatement(sqlSelect);
 			psQuery.setString(1, ISBN);
 			ResultSet rs = psQuery.executeQuery();
 			if(rs.next()) {
@@ -92,7 +92,7 @@ public class DataIO {
 		String sqlDelete = "DELETE FROM Book where ISBN=?";
 		
 		try {
-			PreparedStatement psDelete = DatabaseHelper.getConnection().prepareStatement(sqlDelete);
+			PreparedStatement psDelete = DBHelper.getConnection().prepareStatement(sqlDelete);
 			psDelete.setString(1, ISBN);
 			int result = psDelete.executeUpdate();
 			if(result > 0) return true;
@@ -108,7 +108,7 @@ public class DataIO {
 	public static boolean existAuthor(int authorID) {
 		String sqlSelect = "SELECT * FROM Author WHERE AuthorID=?";
 		try {
-			PreparedStatement qsQuery = DatabaseHelper.getConnection().prepareStatement(sqlSelect);
+			PreparedStatement qsQuery = DBHelper.getConnection().prepareStatement(sqlSelect);
 			qsQuery.setInt(1, authorID);
 			return qsQuery.executeQuery().next();
 		} catch (SQLException e) {
@@ -126,7 +126,7 @@ public class DataIO {
 		String sqlInsert = "INSERT INTO Book (ISBN, Title, AuthorID, Publisher, PublishDate, Price)\n"
 				+ "VALUES (?,?,?,?,?,?)";
 		try {			
-			PreparedStatement psInsert = DatabaseHelper.getConnection().prepareStatement(sqlInsert);
+			PreparedStatement psInsert = DBHelper.getConnection().prepareStatement(sqlInsert);
 			psInsert.setString(1, ISBN);
 			psInsert.setString(2, title);
 			psInsert.setInt(3, authorID);
@@ -150,7 +150,7 @@ public class DataIO {
 		String sqlUpdate = "UPDATE Book SET AuthorID=?, Publisher=?, PublishDate=?, Price=?\n"
 				+ "WHERE ISBN=?";
 		try {			
-			PreparedStatement psUpdate = DatabaseHelper.getConnection().prepareStatement(sqlUpdate);
+			PreparedStatement psUpdate = DBHelper.getConnection().prepareStatement(sqlUpdate);
 			psUpdate.setInt(1, authorID);
 			psUpdate.setString(2, publisher);
 			psUpdate.setString(3, publishDate);
@@ -171,7 +171,7 @@ public class DataIO {
 		String sqlInsert = "INSERT INTO Author (Name, AuthorID, Age, Country) VALUES (?,?,?,?)";
 		
 		try {
-			PreparedStatement psInsert = DatabaseHelper.getConnection().prepareStatement(sqlInsert);
+			PreparedStatement psInsert = DBHelper.getConnection().prepareStatement(sqlInsert);
 			psInsert.setString(1, author);
 			psInsert.setInt(2, authorID);
 			psInsert.setInt(3, age);

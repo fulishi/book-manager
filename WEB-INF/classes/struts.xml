@@ -5,28 +5,22 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.action.extension" value="do"/>
 	<constant name="struts.ui.theme" value="simple" />
-	
+
 	<package name="default" extends="struts-default">
+        <!-- 根据作者或书名查询图书 -->
 		<action name="query" class="action.QueryAction" method="query">
 			<result name="success">/query.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
+
+        <!-- 根据ISBN查询图书详细信息 -->
 		<action name="detail" class="action.QueryAction" method="detail">
 			<result name="success">/detail.jsp</result>
 			<result name="input">/update.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
-		<action name="delete" class="action.QueryAction" method="delete">
-			<result name="success" type="redirectAction">
-				<param name="actionName">query</param>
-				<param name="author">${author}</param>
-				<param name="title">${title}</param>
-			</result>
-			<result name="error">/error.jsp</result>
-		</action>
-		
+        <!-- 添加图书信息 -->
 		<action name="add" class="action.UpdateAction" method="add">
 			<result name="success" type="redirectAction">
 				<param name="actionName">detail</param>
@@ -34,7 +28,18 @@
 			</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
+
+        <!-- 根据ISBN删除图书信息 -->
+		<action name="delete" class="action.UpdateAction" method="delete">
+			<result name="success" type="redirectAction">
+				<param name="actionName">query</param>
+				<param name="author">${author}</param>
+				<param name="title">${title}</param>
+			</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+        <!-- 更新图书信息 -->
 		<action name="update" class="action.UpdateAction" method="update">
 			<result name="success" type="redirectAction">
 				<param name="actionName">detail</param>
@@ -42,9 +47,10 @@
 			</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
+
+        <!-- 添加作者信息 -->
 		<action name="addAuthor" class="action.AddAuthorAction">
-			<result name="success">/add.jsp</result>
+			<result name="success">/authorInfo.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>

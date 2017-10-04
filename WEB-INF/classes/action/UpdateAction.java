@@ -11,11 +11,12 @@ import io.DataIO;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-26
- * @description: 添加和更新图书信息
+ * @description: 添加、删除和更新图书信息
  */
 public class UpdateAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private String title;
+	private String author;
 	private int authorID;
 	private String publisher;
 	private String publishDate;
@@ -29,6 +30,18 @@ public class UpdateAction extends ActionSupport {
 			return SUCCESS;
 		else {
 			request.setAttribute("errorMsg", "对不起，添加图书信息失败！");
+			return ERROR;
+		}
+	}
+
+	
+	/* 根据ISBN删除某本书
+	 */
+	public String delete() {
+		if(DataIO.deleteBook(ISBN))
+			return SUCCESS;
+		else {
+			request.setAttribute("errorMsg", "对不起，删除图书信息失败！");
 			return ERROR;
 		}
 	}
@@ -51,6 +64,16 @@ public class UpdateAction extends ActionSupport {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+
+	public String getAuthor() {
+		return author;
+	}
+
+
+	public void setAuthor(String author) {
+		this.author= author;
 	}
 
 

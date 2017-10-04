@@ -14,7 +14,7 @@ import io.DataIO;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-22
- * @description: TODO
+ * @description: 查询图书列表及详细信息
  */
 public class QueryAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -63,17 +63,6 @@ public class QueryAction extends ActionSupport {
 		}
 		else {
 			request.setAttribute("errorMsg", "对不起，没有找到该图书的有关信息！");
-			return ERROR;
-		}
-	}
-	
-	/* 根据ISBN删除某本书
-	 */
-	public String delete() {
-		if(DataIO.deleteBook(ISBN))
-			return SUCCESS;
-		else {
-			request.setAttribute("errorMsg", "对不起，删除图书信息失败！");
 			return ERROR;
 		}
 	}

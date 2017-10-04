@@ -3,7 +3,7 @@ package action;
 /**
  * @author: Wray Zheng
  * @date: 2017-09-25
- * @description: TODO
+ * @description: 存储图书的详细信息
  */
 public class BookOverview {
 	private String ISBN;
