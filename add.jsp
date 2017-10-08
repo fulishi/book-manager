@@ -10,28 +10,28 @@
         <s:form id="form" method="post" action="add" onsubmit="return updateBook(this)">
         	<div class="input-group">
   				<span class="input-group-addon">书名</span>
-        		<input class="form-control" type="text" name="title" required="true"/>
+        		<input class="form-control" type="text" name="title" placeholder="50字以内" required="true" pattern=".{1,50}"/>
         	</div>
         	<div class="input-group">
   				<span class="input-group-addon">作者编号</span>
-                <input class="form-control" type="text" id="authorID" name="authorID" required="true" pattern="[0-9]{1,9}"/>
+                <input class="form-control" type="text" id="authorID" name="authorID" placeholder="示例：10020" required="true" pattern="[0-9]{1,9}"/>
             </div>
         	<div class="input-group">
   				<span class="input-group-addon">出版社</span>
-                <input class="form-control" type="text" name="publisher" required="true"/>
+                <input class="form-control" type="text" name="publisher" placeholder="40字以内" required="true" pattern=".{1,40}"/>
             </div>
         	<div class="input-group">
   				<span class="input-group-addon">出版日期</span>
-                <input class="form-control" type="text" name="publishDate" required="true" pattern="[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])"/>
+                <input class="form-control" type="text" name="publishDate" placeholder="示例：2017-10-10" required="true" pattern="[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])"/>
             </div>
         	<div class="input-group">
   				<span class="input-group-addon">价格</span>
-                <input class="form-control" type="text" name="price" required="true" pattern="[0-9]+(\.[0-9]+)?"/>
+                <input class="form-control" type="text" name="price" placeholder="示例：80.50" required="true" pattern="[0-9]+(\.[0-9]+)?"/>
                 <span class="input-group-addon">元</span>
             </div>
         	<div class="input-group">
   				<span class="input-group-addon">ISBN</span>
-                <input class="form-control" type="text" name="ISBN" required="true" pattern="([0-9]+-){4}[0-9]"/>
+                <input class="form-control" type="text" name="ISBN" placeholder="示例：978-7-111-45378-9" required="true" pattern="([0-9]+-){4}[0-9]"/>
             </div>
         	<div class="input-center">
                 <input type="submit" class="btn btn-default" value="添加"/>

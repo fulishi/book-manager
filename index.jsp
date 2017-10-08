@@ -4,7 +4,7 @@
         <title>图书管理系统</title>
 <%@ include file="/include/header.jsp" %>
 <!-- Fork me on Github -->
-<a href="https://github.com/wrayzheng/Lab2"><img style="position: absolute; top: 80px; right: 30px; border: 0;" src="<s:url value='/image/forkme.png' />" alt="Fork me on GitHub"></a>
+<a href="https://github.com/wrayzheng/book-manager"><img style="position: absolute; top: 80px; right: 30px; border: 0;" src="<s:url value='/image/forkme.png' />" alt="Fork me on GitHub"></a>
 	<div class="content">
           <div class="cover">
           	<div class="inner">

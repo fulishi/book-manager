@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
 
-    <display-name>Struts 2.0 Hello World</display-name>
+    <display-name>Book Manager</display-name>
 
     <!-- struts2 过滤器，将所有请求都交由 struts2 处理 -->
     <filter>
@@ -15,12 +15,12 @@
 
     <!-- 用于 ajax 异步查询的 Servlet -->
     <servlet>
-        <servlet-name>MyServlet</servlet-name>
+        <servlet-name>APIServlet</servlet-name>
         <servlet-class>api.Query</servlet-class>
         <async-supported>true</async-supported>
     </servlet>
     <servlet-mapping>
-        <servlet-name>MyServlet</servlet-name>
+        <servlet-name>APIServlet</servlet-name>
         <url-pattern>/api/query</url-pattern>
     </servlet-mapping>
 
